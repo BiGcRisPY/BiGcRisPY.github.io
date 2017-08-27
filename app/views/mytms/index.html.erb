@@ -1,0 +1,37 @@
+<div class="page-header">
+  <h1>
+    My TMs
+    <a href="/mytms/new" class="btn btn-lg btn-success">Add TM</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>TM</th>
+        <th>Move</th>
+        <th>Effect</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @mytms.each do |mytm| %>
+
+        <% if mytm.tm.id < 10 %>
+          <% z = "0" %>
+        <% else %>
+          <% z = "" %>
+        <% end %>
+
+      <tr>
+        <td><a href="/mytms/<%= mytm.id %>">#<%= z + mytm.tm.id.to_s %></a></td>
+        <td><%= mytm.tm.move.name %></td>
+        <td><%= mytm.tm.move.effect %></td>
+        <td>
+          <a href="/delete_mytm/<%= mytm.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

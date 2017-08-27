@@ -1,0 +1,196 @@
+<div class="page-header">
+  <h3>#<%= @zero + @pokemon.id.to_s %>  <%= @pokemon.creature %></h3>
+</div>
+
+<div class="row padding-inside-bottom-sm">
+
+  <div class="col-md-4">
+    <img src="<%= @pokemon.image %>" alt="">
+  </div>
+
+  <div class="col-md-2">
+    <h4><%= @pokemon.creature + "'s Type(s)" %></h4>
+    <% @pokemon.types.each do |t| %>
+      <dd><%= t.title %></dd>
+    <% end %>
+  </div>
+
+  <div class="col-md-6">
+    <h4>Evolution</h4>
+    <table>
+
+        <% if @pokemon.evo_outcome.to_i > 0 %>
+
+          <% if @pokemon.creature == "Eevee" %>
+          <tr>
+            <!-- Show stones plus arrow -->
+            <td class="col-md-4"><h5>
+              <dd>Use Water Stone</dd>
+              <dd>Use Thunder Stone</dd>
+              <dd>Use Fire Stone</dd>
+              <i class="fa fa-arrow-right" aria-hidden="true"></i>
+            </h5></td>
+            <!-- Show pictures of all 3 evolutions -->
+            <% @evopoke.each do |p| %>
+              <td class="col-md-2"><img src="<%= p.image %>" alt="" style="width:100px;"></td>
+            <% end %>
+          </tr>
+          <tr>
+            <td class="col-md-4"></td>
+            <% @evopoke.each do |p| %>
+              <td class="col-md-2"><%= p.creature %></td>
+            <% end %>
+          </tr>
+
+          <% elsif @pokemon.evo_level.to_i > 0 %>
+          <tr>
+            <!-- Show Level # plus arrow -->
+            <td class="col-md-2"><h5><%= "Level " + @pokemon.evo_level %> <i class="fa fa-arrow-right" aria-hidden="true"></i></h5></td>
+            <!-- Show image of pokemon -->
+            <td class="col-md-6"><img src="<%= @evopoke.image %>" alt="" style="width:100px;"></td>
+          </tr>
+          <tr>
+            <td class="col-md-2"></td>
+            <td class="col-md-6"><%= @evopoke.creature %></td>
+          </tr>
+
+          <% else %>
+          <tr>
+            <!-- Show stone/trade plus arrow -->
+            <td class="col-md-3"><h5><%= @pokemon.evo_level %> <i class="fa fa-arrow-right" aria-hidden="true"></i></h5></td>
+            <!-- Show image of pokemon -->
+            <td class="col-md-6"><img src="<%= @evopoke.image %>" alt="" style="width:100px;"></td>
+          </tr>
+          <tr>
+            <td class="col-md-3"></td>
+            <td class="col-md-6"><%= @evopoke.creature %></td>
+          </tr>
+          <% end %>
+
+        <% else %>
+        <tr>
+          <td><h5>Final Form</h5></td>
+        </tr>
+        <% end %>
+    </table>
+  </div>
+</div>
+
+<!-- Move & TM info -->
+<div class="row padding-inside-bottom-sm">
+
+  <!-- Moves learned -->
+  <div class="col-md-6">
+
+    <h4>Moves <%= @pokemon.creature %> learns by leveling up</h4>
+
+    <table>
+      <tr>
+        <th class="col-md-2">Level</th>
+        <th class="col-md-3">Move</th>
+        <th class="col-md-7">Effect</th>
+      </tr>
+
+      <% @pokemon.learnedmoves.each do |m| %>
+      <tr>
+        <td class="col-md-2"><%= m.level_learned %></td>
+        <td class="col-md-3"><%= m.move.name %></td>
+        <td class="col-md-7"><%= m.move.effect %> </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+
+  <!-- TMs learned -->
+  <div class="col-md-6">
+
+    <h4>TMs <%= @pokemon.creature %> can learn</h4>
+
+    <% if @pokemon.tms.length == 0 %>
+      <h5><%= @pokemon.creature %> cannot learn any TMs </h5>
+
+    <% else %>
+    <table>
+      <tr>
+        <th class="col-md-2">TM</th>
+        <th class="col-md-3">Move</th>
+        <th class="col-md-7">Effect</th>
+      </tr>
+
+      <% @pokemon.tms.each do |t| %>
+      <% if t.id < 10 %>
+        <% z = "0" %>
+      <% else %>
+        <% z = "" %>
+      <% end %>
+
+      <tr>
+        <td class="col-md-2"><%= "#" + z + t.id.to_s %></td>
+        <td class="col-md-3"><%= t.move.name %></td>
+        <td class="col-md-7"><%= t.move.effect %> </td>
+      </tr>
+      <% end %>
+    </table>
+    <% end %>
+
+  </div>
+</div>
+
+<!-- Navigation row -->
+<div class="row padding-inside-top-sm padding-inside-bottom-sm">
+
+  <div class="col-md-12 mb-2">
+
+    <!-- Go to previous Pokemon -->
+    <div class="col-md-4">
+      <% if @pokemon.id > 1 %>
+        <a href="/pokemons/<%= @prevpoke.id %>">
+        <table>
+          <tr>
+            <td class="col-md-2 ">
+              <i class="fa fa-chevron-left fa-3x" aria-hidden="true"></i>
+            </td>
+            <td class="col-md-3">
+              <img style="height:60px;" src="<%= @prevpoke.image %>" alt="">
+            </td>
+            <td class="col-md-2">
+                <dd><%= "#" + @prevzero + @prevpoke.id.to_s %></dd>
+                <dd><%= @prevpoke.creature %></dd>
+            </td>
+          </tr>
+        </table>
+        </a>
+      <% end %>
+    </div>
+
+    <!-- Go to Pokemon List -->
+    <div class="col-md-4 padding-inside-top-xs">
+      <a href="/pokemons" class="btn btn-primary btn-block">
+        Pokedex
+      </a>
+    </div>
+
+    <!-- Go to next Pokemon -->
+    <div class="col-md-4">
+      <% if @pokemon.id < 151 %>
+        <a href="/pokemons/<%= @nextpoke.id %>">
+        <table>
+          <tr>
+            <td class="col-md-2">
+                <dd><%= "#" + @nextzero + @nextpoke.id.to_s %></dd>
+                <dd><%= @nextpoke.creature %></dd>
+            </td>
+            <td class="col-md-3">
+              <img style="height:60px;" src="<%= @nextpoke.image %>" alt="">
+            </td>
+            <td class="col-md-2">
+              <i class="fa fa-chevron-right fa-3x" aria-hidden="true"></i>
+            </td>
+          </tr>
+        </table>
+      </a>
+    <% end %>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,50 @@
+<% if @mytm.tm.id < 10 %>
+  <% z = "#0" %>
+<% else %>
+  <% z = "#" %>
+<% end %>
+
+<div class="page-header">
+  <h3>TM <%= z + @mytm.tm.id.to_s %> <%= @mytm.tm.move.name %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+
+    <table>
+      <th>
+        My Pokemon that can learn <%= @mytm.tm.move.name %>
+      </th>
+
+      <!-- My Pokemon where pokemon id is in and my tm id is in learnedTMs -->
+      <% myTmPoke = @learnedtms.select{ |t| t.tm_id == @mytm.tm.id }.select{ |p| @myPokes.pluck(:pokemon_id).include? p.pokemon_id }  %>
+
+      <% if myTmPoke.length == 0 %>
+      <tr>
+        <td>None of my Pokemon can learn <%= @mytm.tm.move.name %></td>
+      </tr>
+
+      <% else %>
+        <% myTmPoke.each do |t| %>
+        <tr>
+          <td><%= t.pokemon.creature %></td>
+        </tr>
+        <% end %>
+      <% end %>
+
+    </table>
+  </div>
+</div>
+
+<div class="row padding-inside-top-sm">
+  <div class="col-md-12">
+    <div class="btn-group btn-group-justified">
+      <a href="/mytms" class="btn btn-warning">
+        Back
+      </a>
+      <a href="/delete_mytm/<%= @mytm.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>

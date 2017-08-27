@@ -1,0 +1,46 @@
+<!-- Validation failure messages -->
+<% if @move.errors.any? %>
+  <% @move.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Move</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_move" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for name -->
+      <div class="form-group">
+        <label for="name" class="control-label">
+          Name
+        </label>
+
+        <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="<%= @move.name %>">
+      </div>
+
+      <!-- Label and input for effect -->
+      <div class="form-group">
+        <label for="effect" class="control-label">
+          Effect
+        </label>
+
+        <textarea id="effect" name="effect" placeholder="Effect" class="form-control" rows="3"><%= @move.effect %></textarea>
+      </div>
+
+      <button class="btn btn-success">
+        Create Move
+      </button>
+      or
+      <a href="/moves">Cancel</a>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,43 @@
+<div class="page-header">
+  <h1>
+    <%= current_trainer.username %>'s Pokedex
+    <a href="/pokedexes/new" class="btn btn-lg btn-success">New Pokedex</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Index</th>
+        <th>Pokemon</th>
+        <th>Nickname</th>
+        <th>Current level</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @pokedexes.each do |pokedex| %>
+
+      <% if pokedex.pokemon.id < 10 %>
+       <% z = "00" %>
+      <% elsif pokedex.pokemon.id < 100 %>
+        <% z = "0" %>
+      <% else %>
+        <% z = "" %>
+      <% end %>
+
+      <tr>
+        <td><%= "#" + z + pokedex.pokemon.id.to_s %></td>
+        <td><%= pokedex.pokemon.creature %></td>
+        <td><%= pokedex.nickname %></td>
+        <td><%= pokedex.current_level %></td>
+        <td>
+          <a href="/pokedexes/<%= pokedex.id %>" class="btn btn-primary">Show</a>
+          <a href="/pokedexes/<%= pokedex.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_pokedex/<%= pokedex.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

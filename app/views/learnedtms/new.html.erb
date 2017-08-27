@@ -1,0 +1,46 @@
+<!-- Validation failure messages -->
+<% if @learnedtm.errors.any? %>
+  <% @learnedtm.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Learnedtm</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_learnedtm" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for pokemon_id -->
+      <div class="form-group">
+        <label for="pokemon_id" class="control-label">
+          Pokemon
+        </label>
+
+        <input type="text" id="pokemon_id" name="pokemon_id" placeholder="Pokemon" class="form-control" value="<%= @learnedtm.pokemon_id %>">
+      </div>
+
+      <!-- Label and input for tm_id -->
+      <div class="form-group">
+        <label for="tm_id" class="control-label">
+          Tm
+        </label>
+
+        <input type="text" id="tm_id" name="tm_id" placeholder="Tm" class="form-control" value="<%= @learnedtm.tm_id %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Learnedtm
+      </button>
+      or
+      <a href="/learnedtms">Cancel</a>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+<div class="page-header">
+  <h1>
+    Battles
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Offense</th>
+        <th>Defense</th>
+        <th>Effectiveness</th>
+      </tr>
+
+      <% @battles.each do |battle| %>
+      <tr>
+        <td><%= battle.offense.title %></td>
+        <td><%= battle.defense.title %></td>
+        <td><%= battle.effectiveness %></td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

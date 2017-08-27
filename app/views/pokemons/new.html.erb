@@ -1,0 +1,64 @@
+<!-- Validation failure messages -->
+<% if @pokemon.errors.any? %>
+  <% @pokemon.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Pokemon</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_pokemon" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for creature -->
+      <div class="form-group">
+        <label for="creature" class="control-label">
+          Creature
+        </label>
+
+        <input type="text" id="creature" name="creature" placeholder="Creature" class="form-control" value="<%= @pokemon.creature %>">
+      </div>
+
+      <!-- Label and input for evo_level -->
+      <div class="form-group">
+        <label for="evo_level" class="control-label">
+          Evo level
+        </label>
+
+        <input type="text" id="evo_level" name="evo_level" placeholder="Evo level" class="form-control" value="<%= @pokemon.evo_level %>">
+      </div>
+
+      <!-- Label and input for evo_outcome -->
+      <div class="form-group">
+        <label for="evo_outcome" class="control-label">
+          Evo outcome
+        </label>
+
+        <input type="text" id="evo_outcome" name="evo_outcome" placeholder="Evo outcome" class="form-control" value="<%= @pokemon.evo_outcome %>">
+      </div>
+
+      <!-- Label and input for image -->
+      <div class="form-group">
+        <label for="image" class="control-label">
+          Image
+        </label>
+
+        <input type="text" id="image" name="image" placeholder="Image" class="form-control" value="<%= @pokemon.image %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Pokemon
+      </button>
+      or
+      <a href="/pokemons">Cancel</a>
+    </form>
+  </div>
+</div>

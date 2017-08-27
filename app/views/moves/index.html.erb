@@ -1,0 +1,23 @@
+<div class="page-header">
+  <h1>
+    Moves
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Name</th>
+        <th>Effect</th>
+      </tr>
+
+      <% @moves.each do |move| %>
+      <tr>
+        <td><%= move.name %></td>
+        <td><%= move.effect %></td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

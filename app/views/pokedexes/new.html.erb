@@ -1,0 +1,65 @@
+<!-- Validation failure messages -->
+<% if @pokedex.errors.any? %>
+  <% @pokedex.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Pokemon to Your Pokedex</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_pokedex" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for pokemon_id -->
+      <div class="form-group">
+        <label for="pokemon_id" class="control-label">
+          Select Pokemon
+        </label>
+
+        <select id="pokemon_id" name="pokemon_id" class="form-control selectpicker" data-live-search="true">
+          <% @pokemon.each do |p| %>
+            <option value="<%= p.id %>" data-tokens="<%= p.creature.downcase %>"><%= p.creature %></option>
+          <% end %>
+        </select>
+      </div>
+
+      <!-- Label and input for nickname -->
+      <div class="form-group">
+        <label for="nickname" class="control-label">
+          Nickname
+        </label>
+
+        <input type="text" id="nickname" name="nickname" placeholder="Nickname" class="form-control" value="<%= @pokedex.nickname %>">
+      </div>
+
+      <!-- Label and input for current_level -->
+      <div class="form-group">
+        <label for="current_level" class="control-label">
+          Current level
+        </label>
+
+        <input type="text" id="current_level" name="current_level" placeholder="Current level" class="form-control" value="<%= @pokedex.current_level %>">
+      </div>
+
+      <!-- Label and input for trainer_id -->
+      <div class="form-group">
+
+        <input type="hidden" id="trainer_id" name="trainer_id" class="form-control" value="<%= current_trainer.id %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Pokedex
+      </button>
+      or
+      <a href="/pokedexes">Cancel</a>
+    </form>
+  </div>
+</div>

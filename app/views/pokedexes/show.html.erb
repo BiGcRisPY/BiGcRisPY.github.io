@@ -1,0 +1,292 @@
+<% if @pokedex.nickname == "" %>
+  <% pokename = @pokedex.pokemon.creature %>
+<% else %>
+  <% pokename = @pokedex.nickname %>
+<% end %>
+
+<div class="page-header row">
+  <div class="col-md-10">
+    <h3><%= current_trainer.username %>'s <%= @pokedex.pokemon.creature %></h3>
+    <% if @pokedex.nickname != nil %>
+      <h4><%= @pokedex.nickname %></h4>
+    <% end %>
+  </div>
+
+  <div class="col-md-2">
+
+    <!-- Evolve -->
+    <% if @pokedex.pokemon.evo_outcome.to_i > 0 %>
+
+      <!-- Then, if the Pokemon is Eevee -->
+      <% if @pokedex.pokemon.creature == "Eevee" %>
+        hi
+
+      <!-- Otherwise, pull evo_outcome to evolve up -->
+      <% else %>
+        <form action="/update_pokedex/<%= @pokedex.id %>" method="post">
+
+          <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+          <!-- evolve up -->
+          <input type="hidden" name="pokemon_id" value="<%= @pokedex.pokemon.evo_outcome.to_i %>">
+
+          <input type="hidden" name="nickname" value="<%= @pokedex.nickname %>">
+
+          <input type="hidden" name="current_level" value="<%= @pokedex.current_level %>">
+
+          <input type="hidden" name="trainer_id" value="<%= @pokedex.trainer_id %>">
+
+          <button class="btn btn-warning">Evolve</button>
+        </form>
+
+      <% end %>
+    <% end %>
+
+    <!-- Un-evolve -->
+    <!-- If the Pokemon's prev is Eevee -->
+    <% if @pokedex.pokemon.creature == "Jolteon" || @pokedex.pokemon.creature == "Flareon" || @pokedex.pokemon.creature == "Vaporeon" %>
+
+      <form action="/update_pokedex/<%= @pokedex.id %>" method="post">
+
+        <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+        <!-- un-evolve to Eevee -->
+        <input type="hidden" name="pokemon_id" value="133">
+
+        <input type="hidden" name="nickname" value="<%= @pokedex.nickname %>">
+
+        <input type="hidden" name="current_level" value="<%= @pokedex.current_level %>">
+
+        <input type="hidden" name="trainer_id" value="<%= @pokedex.trainer_id %>">
+
+        <button class="btn btn-primary">Un-Evolve</button>
+      </form>
+
+    <% else %>
+      <!-- Check if there is a Pokemon where evo_outcome = @pokedex.id -->
+      <% prevpoke = @pokemons.find_by( "evo_outcome == ?", @pokedex.pokemon.id.to_s ) %>
+
+      <!-- If there is, un-evolve -->
+      <% if prevpoke != nil %>
+        <form action="/update_pokedex/<%= @pokedex.id %>" method="post">
+
+          <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+          <!-- un-evolve -->
+          <input type="hidden" name="pokemon_id" value="<%= prevpoke.id %>">
+
+          <input type="hidden" name="nickname" value="<%= @pokedex.nickname %>">
+
+          <input type="hidden" name="current_level" value="<%= @pokedex.current_level %>">
+
+          <input type="hidden" name="trainer_id" value="<%= @pokedex.trainer_id %>">
+
+          <button class="btn btn-primary">Un-Evolve</button>
+        </form>
+      <% end %>
+    <% end %>
+
+  </div>
+</div>
+
+<div class="row padding-inside-bottom-sm">
+
+  <!-- Image -->
+  <div class="col-md-3">
+    <img src="<%= @pokedex.pokemon.image %>" alt="">
+  </div>
+
+  <!-- Basic Info -->
+  <div class="col-md-3">
+    <dl class="dl-horizontal">
+      <dt>Index</dt>
+      <dd><a href="/pokemons/<%= @pokedex.pokemon.id %>">#<%= @zero + @pokedex.pokemon.id.to_s %></a></dd>
+
+      <dt>Current Level</dt>
+      <dd><%= @pokedex.current_level %>
+
+        <form action="/update_pokedex/<%= @pokedex.id %>" method="post">
+
+          <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+          <input type="hidden" name="pokemon_id" value="<%= @pokedex.pokemon_id %>">
+
+          <input type="hidden" name="nickname" value="<%= @pokedex.nickname %>">
+
+          <input type="hidden" name="current_level" value="<%= @pokedex.current_level + 1 %>">
+
+          <input type="hidden" name="trainer_id" value="<%= @pokedex.trainer_id %>">
+
+          <button class="btn-link"><i class="fa fa-plus-square" aria-hidden="true"></i></button>
+        </form>
+
+        <form action="/update_pokedex/<%= @pokedex.id %>" method="post">
+
+          <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+          <input type="hidden" name="pokemon_id" value="<%= @pokedex.pokemon_id %>">
+
+          <input type="hidden" name="nickname" value="<%= @pokedex.nickname %>">
+
+          <input type="hidden" name="current_level" value="<%= @pokedex.current_level - 1 %>">
+
+          <input type="hidden" name="trainer_id" value="<%= @pokedex.trainer_id %>">
+
+          <button class="btn-link"><i class="fa fa-minus-square" aria-hidden="true"></i></button>
+        </form>
+
+      </dd>
+
+      <dt>Type(s)</dt>
+      <% @pokedex.pokemon.types.each do |t| %>
+        <dd><%= t.title %></dd>
+      <% end %>
+    </dl>
+  </div>
+
+  <div class="col-md-6">
+    <h4>Evolution</h4>
+    <table>
+
+      <% if @pokedex.pokemon.evo_outcome.to_i > 0 %>
+
+        <% if @pokedex.pokemon.creature == "Eevee" %>
+        <tr>
+          <!-- Show stones plus arrow -->
+          <td class="col-md-4"><h5>
+            <dd>Use Water Stone</dd>
+            <dd>Use Thunder Stone</dd>
+            <dd>Use Fire Stone</dd>
+            <i class="fa fa-arrow-right" aria-hidden="true"></i>
+          </h5></td>
+          <!-- Show pictures of all 3 evolutions -->
+          <% @evopoke.each do |p| %>
+          <td class="col-md-2">
+            <img src="<%= p.image %>" style="width:100px;">
+          </td>
+          <% end %>
+        </tr>
+        <tr>
+          <td class="col-md-4"></td>
+          <% @evopoke.each do |p| %>
+            <td class="col-md-2"><%= p.creature %></td>
+          <% end %>
+        </tr>
+
+        <% elsif @pokedex.pokemon.evo_level.to_i > 0 %>
+        <tr>
+          <!-- Show level # plus arrow -->
+          <td class="col-md-2"><h5><%= "Level " + @pokedex.pokemon.evo_level %> <i class="fa fa-arrow-right" aria-hidden="true"></i></h5></td>
+          <!-- Show image of pokemon -->
+          <td class="col-md-6"><img src="<%= @evopoke.image %>" style="width:100px;"></td>
+        </tr>
+        <tr>
+          <td class="col-md-2"></td>
+          <td class="col-md-4"><%= @evopoke.creature %></td>
+        </tr>
+
+        <% else %>
+        <tr>
+          <!-- Show stone/trade plus arrow -->
+          <td class="col-md-3"><h5><%= @pokedex.pokemon.evo_level %> <i class="fa fa-arrow-right" aria-hidden="true"></i></h5></td>
+          <!-- Show image of pokemon -->
+          <td class="col-md-6"><img src="<%= @evopoke.image %>" style="width:100px;"></td>
+        </tr>
+        <tr>
+          <td class="col-md-3"></td>
+          <td class="col-md-6"><%= @evopoke.creature %></td>
+        </tr>
+        <% end %>
+
+      <% else %>
+      <tr>
+        <td><h5>Final Form</h5></td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<!-- Move & TM info -->
+<div class="row padding-inside-bottom-sm">
+
+  <!-- Moves learned -->
+  <div class="col-md-6">
+
+    <h4>Moves <%= pokename %> learns by leveling up</h4>
+
+    <table>
+      <tr>
+        <th class="col-md-2">Level</th>
+        <th class="col-md-3">Move</th>
+        <th class="col-md-7">Effect</th>
+      </tr>
+
+      <% lMovesLeft = @pokedex.pokemon.learnedmoves.where( "level_learned > ?", @pokedex.current_level ) %>
+
+      <% lMovesLeft.each do |m| %>
+      <tr>
+        <td class="col-md-2"><%= m.level_learned %></td>
+        <td class="col-md-3"><%= m.move.name %></td>
+        <td class="col-md-7"><%= m.move.effect %></td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+
+  <!-- TMs learned -->
+  <div class="col-md-6">
+
+    <h4>My TMs <%= pokename %> can learn</h4>
+
+    <% if @pokedex.pokemon.tms.length == 0 %>
+      <h5><%= pokename %> cannot learn any TMs</h5>
+
+    <% else %>
+    <table>
+      <tr>
+        <th class="col-md-2">TM</th>
+        <th class="col-md-3">Move</th>
+        <th class="col-md-7">Effect</th>
+      </tr>
+
+      <!-- My TMs that are included in the list of TMs the Pokemon can learn -->
+      <% lTmsHave = @tmsHave.select{ |t| @pokedex.pokemon.tms.ids.include? t.tm_id } %>
+
+      <% lTmsHave.each do |t| %>
+
+        <% if t.tm.id < 10 %>
+          <% z = "0" %>
+        <% else %>
+          <% z = "" %>
+        <% end %>
+
+      <tr>
+        <td class="col-md-2"><%= "#" + z + t.tm.id.to_s %></td>
+        <td class="col-md-3"><%= t.tm.move.name %></td>
+        <td class="col-md-7"><%= t.tm.move.effect %></td>
+      </tr>
+      <% end %>
+    </table>
+    <% end %>
+
+
+  </div>
+</div>
+
+<div class="row padding-inside-to-sm padding-inside-bottom-sm">
+  <div class="col-md-12 mb-2">
+
+    <div class="btn-group btn-group-justified">
+      <a href="/pokedexes" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/pokedexes/<%= @pokedex.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_pokedex/<%= @pokedex.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>

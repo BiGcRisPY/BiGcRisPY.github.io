@@ -1,0 +1,27 @@
+<div class="page-header">
+  <h1>
+    Learnedtms
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Pokemon</th>
+        <th>Tm</th>
+        <th>Move</th>
+        <th>Effect</th>
+      </tr>
+
+      <% @learnedtms.each do |learnedtm| %>
+      <tr>
+        <td><%= learnedtm.pokemon.creature %></td>
+        <td><%= learnedtm.tm.id %></td>
+        <td><%= learnedtm.tm.move.name %></td>
+        <td><%= learnedtm.tm.move.effect %></td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,152 @@
+pokemon,evolution_level,evolution_outcome,image
+Bulbasaur,16,2,https://img.pokemondb.net/artwork/bulbasaur.jpg
+Ivysaur,32,3,https://img.pokemondb.net/artwork/ivysaur.jpg
+Venusaur,,Final Form,https://img.pokemondb.net/artwork/venusaur.jpg
+Charmander,16,5,https://img.pokemondb.net/artwork/charmander.jpg
+Charmeleon,36,6,https://img.pokemondb.net/artwork/charmeleon.jpg
+Charizard,,Final Form,https://img.pokemondb.net/artwork/charizard.jpg
+Squirtle,16,8,https://img.pokemondb.net/artwork/squirtle.jpg
+Wartortle,36,9,https://img.pokemondb.net/artwork/wartortle.jpg
+Blastoise,,Final Form,https://img.pokemondb.net/artwork/blastoise.jpg
+Caterpie,7,11,https://img.pokemondb.net/artwork/caterpie.jpg
+Metapod,10,12,https://img.pokemondb.net/artwork/metapod.jpg
+Butterfree,,Final Form,https://img.pokemondb.net/artwork/butterfree.jpg
+Weedle,7,14,https://img.pokemondb.net/artwork/weedle.jpg
+Kakuna,10,15,https://img.pokemondb.net/artwork/kakuna.jpg
+Beedrill,,Final Form,https://img.pokemondb.net/artwork/beedrill.jpg
+Pidgey,18,17,https://img.pokemondb.net/artwork/pidgey.jpg
+Pidgeotto,36,18,https://img.pokemondb.net/artwork/pidgeotto.jpg
+Pidgeot,,Final Form,https://img.pokemondb.net/artwork/pidgeot.jpg
+Rattata,20,20,https://img.pokemondb.net/artwork/rattata.jpg
+Raticate,,Final Form,https://img.pokemondb.net/artwork/raticate.jpg
+Spearow,20,22,https://img.pokemondb.net/artwork/spearow.jpg
+Fearow,,Final Form,https://img.pokemondb.net/artwork/fearow.jpg
+Ekans,22,24,https://img.pokemondb.net/artwork/ekans.jpg
+Arbok,,Final Form,https://img.pokemondb.net/artwork/arbok.jpg
+Pikachu,use Thunder Stone,26,https://img.pokemondb.net/artwork/pikachu.jpg
+Raichu,,Final Form,https://img.pokemondb.net/artwork/raichu.jpg
+Sandshrew,22,28,https://img.pokemondb.net/artwork/sandshrew.jpg
+Sandslash,,Final Form,https://img.pokemondb.net/artwork/sandslash.jpg
+Nidoran-f,16,30,https://img.pokemondb.net/artwork/nidoran-f.jpg
+Nidorina,use Moon Stone,31,https://img.pokemondb.net/artwork/nidorina.jpg
+Nidoqueen,,Final Form,https://img.pokemondb.net/artwork/nidoqueen.jpg
+Nidoran-m,16,33,https://img.pokemondb.net/artwork/nidoran-m.jpg
+Nidorino,use Moon Stone,34,https://img.pokemondb.net/artwork/nidorino.jpg
+Nidoking,,Final Form,https://img.pokemondb.net/artwork/nidoking.jpg
+Clefairy,use Moon Stone,36,https://img.pokemondb.net/artwork/clefairy.jpg
+Clefable,,Final Form,https://img.pokemondb.net/artwork/clefable.jpg
+Vulpix,use Fire Stone,38,https://img.pokemondb.net/artwork/vulpix.jpg
+Ninetales,,Final Form,https://img.pokemondb.net/artwork/ninetales.jpg
+Jigglypuff,use Moon Stone,40,https://img.pokemondb.net/artwork/jigglypuff.jpg
+Wigglytuff,,Final Form,https://img.pokemondb.net/artwork/wigglytuff.jpg
+Zubat,22,42,https://img.pokemondb.net/artwork/zubat.jpg
+Golbat,,Final Form,https://img.pokemondb.net/artwork/golbat.jpg
+Oddish,21,44,https://img.pokemondb.net/artwork/oddish.jpg
+Gloom,use Leaf Stone,45,https://img.pokemondb.net/artwork/gloom.jpg
+Vileplume,,Final Form,https://img.pokemondb.net/artwork/vileplume.jpg
+Paras,24,47,https://img.pokemondb.net/artwork/paras.jpg
+Parasect,,Final Form,https://img.pokemondb.net/artwork/parasect.jpg
+Venonat,31,49,https://img.pokemondb.net/artwork/venonat.jpg
+Venomoth,,Final Form,https://img.pokemondb.net/artwork/venomoth.jpg
+Diglett,26,51,https://img.pokemondb.net/artwork/diglett.jpg
+Dugtrio,,Final Form,https://img.pokemondb.net/artwork/dugtrio.jpg
+Meowth,28,53,https://img.pokemondb.net/artwork/meowth.jpg
+Persian,,Final Form,https://img.pokemondb.net/artwork/persian.jpg
+Psyduck,33,55,https://img.pokemondb.net/artwork/psyduck.jpg
+Golduck,,Final Form,https://img.pokemondb.net/artwork/golduck.jpg
+Mankey,28,57,https://img.pokemondb.net/artwork/mankey.jpg
+Primeape,,Final Form,https://img.pokemondb.net/artwork/primeape.jpg
+Growlithe,use Fire Stone,59,https://img.pokemondb.net/artwork/growlithe.jpg
+Arcanine,,Final Form,https://img.pokemondb.net/artwork/arcanine.jpg
+Poliwag,25,61,https://img.pokemondb.net/artwork/poliwag.jpg
+Poliwhirl,use Water Stone,62,https://img.pokemondb.net/artwork/poliwhirl.jpg
+Poliwrath,,Final Form,https://img.pokemondb.net/artwork/poliwrath.jpg
+Abra,16,64,https://img.pokemondb.net/artwork/abra.jpg
+Kadabra,Trade,65,https://img.pokemondb.net/artwork/kadabra.jpg
+Alakazam,,Final Form,https://img.pokemondb.net/artwork/alakazam.jpg
+Machop,28,67,https://img.pokemondb.net/artwork/machop.jpg
+Machoke,Trade,68,https://img.pokemondb.net/artwork/machoke.jpg
+Machamp,,Final Form,https://img.pokemondb.net/artwork/machamp.jpg
+Bellsprout,21,70,https://img.pokemondb.net/artwork/bellsprout.jpg
+Weepinbell,use Leaf Stone,71,https://img.pokemondb.net/artwork/weepinbell.jpg
+Victreebel,,Final Form,https://img.pokemondb.net/artwork/victreebel.jpg
+Tentacool,30,73,https://img.pokemondb.net/artwork/tentacool.jpg
+Tentacruel,,Final Form,https://img.pokemondb.net/artwork/tentacruel.jpg
+Geodude,25,75,https://img.pokemondb.net/artwork/geodude.jpg
+Graveler,Trade,76,https://img.pokemondb.net/artwork/graveler.jpg
+Golem,,Final Form,https://img.pokemondb.net/artwork/golem.jpg
+Ponyta,40,78,https://img.pokemondb.net/artwork/ponyta.jpg
+Rapidash,,Final Form,https://img.pokemondb.net/artwork/rapidash.jpg
+Slowpoke,37,80,https://img.pokemondb.net/artwork/slowpoke.jpg
+Slowbro,,Final Form,https://img.pokemondb.net/artwork/slowbro.jpg
+Magnemite,30,82,https://img.pokemondb.net/artwork/magnemite.jpg
+Magneton,,Final Form,https://img.pokemondb.net/artwork/magneton.jpg
+Farfetch'd,,Final Form,https://img.pokemondb.net/artwork/farfetchd.jpg
+Doduo,31,85,https://img.pokemondb.net/artwork/doduo.jpg
+Dodrio,,Final Form,https://img.pokemondb.net/artwork/dodrio.jpg
+Seel,34,87,https://img.pokemondb.net/artwork/seel.jpg
+Dewgong,,Final Form,https://img.pokemondb.net/artwork/dewgong.jpg
+Grimer,38,89,https://img.pokemondb.net/artwork/grimer.jpg
+Muk,,Final Form,https://img.pokemondb.net/artwork/muk.jpg
+Shellder,use Water Stone,91,https://img.pokemondb.net/artwork/shellder.jpg
+Cloyster,,Final Form,https://img.pokemondb.net/artwork/cloyster.jpg
+Gastly,25,93,https://img.pokemondb.net/artwork/gastly.jpg
+Haunter,Trade,94,https://img.pokemondb.net/artwork/haunter.jpg
+Gengar,,Final Form,https://img.pokemondb.net/artwork/gengar.jpg
+Onix,,Final Form,https://img.pokemondb.net/artwork/onix.jpg
+Drowzee,26,97,https://img.pokemondb.net/artwork/drowzee.jpg
+Hypno,,Final Form,https://img.pokemondb.net/artwork/hypno.jpg
+Krabby,28,99,https://img.pokemondb.net/artwork/krabby.jpg
+Kingler,,Final Form,https://img.pokemondb.net/artwork/kingler.jpg
+Voltorb,30,101,https://img.pokemondb.net/artwork/voltorb.jpg
+Electrode,,Final Form,https://img.pokemondb.net/artwork/electrode.jpg
+Exeggcute,use Leaf Stone,103,https://img.pokemondb.net/artwork/exeggcute.jpg
+Exeggutor,,Final Form,https://img.pokemondb.net/artwork/exeggutor.jpg
+Cubone,28,105,https://img.pokemondb.net/artwork/cubone.jpg
+Marowak,,Final Form,https://img.pokemondb.net/artwork/marowak.jpg
+Hitmonlee,,Final Form,https://img.pokemondb.net/artwork/hitmonlee.jpg
+Hitmonchan,,Final Form,https://img.pokemondb.net/artwork/hitmonchan.jpg
+Lickitung,,Final Form,https://img.pokemondb.net/artwork/lickitung.jpg
+Koffing,35,110,https://img.pokemondb.net/artwork/koffing.jpg
+Weezing,,Final Form,https://img.pokemondb.net/artwork/weezing.jpg
+Rhyhorn,42,112,https://img.pokemondb.net/artwork/rhyhorn.jpg
+Rhydon,,Final Form,https://img.pokemondb.net/artwork/rhydon.jpg
+Chansey,,Final Form,https://img.pokemondb.net/artwork/chansey.jpg
+Tangela,,Final Form,https://img.pokemondb.net/artwork/tangela.jpg
+Kangaskhan,,Final Form,https://img.pokemondb.net/artwork/kangaskhan.jpg
+Horsea,32,117,https://img.pokemondb.net/artwork/horsea.jpg
+Seadra,,Final Form,https://img.pokemondb.net/artwork/seadra.jpg
+Goldeen,33,119,https://img.pokemondb.net/artwork/goldeen.jpg
+Seaking,,Final Form,https://img.pokemondb.net/artwork/seaking.jpg
+Staryu,use Water Stone,121,https://img.pokemondb.net/artwork/staryu.jpg
+Starmie,,Final Form,https://img.pokemondb.net/artwork/starmie.jpg
+Mr. Mime,,Final Form,https://img.pokemondb.net/artwork/mr-mime.jpg
+Scyther,,Final Form,https://img.pokemondb.net/artwork/scyther.jpg
+Jynx,,Final Form,https://img.pokemondb.net/artwork/jynx.jpg
+Electabuzz,,Final Form,https://img.pokemondb.net/artwork/electabuzz.jpg
+Magmar,,Final Form,https://img.pokemondb.net/artwork/magmar.jpg
+Pinsir,,Final Form,https://img.pokemondb.net/artwork/pinsir.jpg
+Tauros,,Final Form,https://img.pokemondb.net/artwork/tauros.jpg
+Magikarp,20,130,https://img.pokemondb.net/artwork/magikarp.jpg
+Gyarados,,Final Form,https://img.pokemondb.net/artwork/gyarados.jpg
+Lapras,,Final Form,https://img.pokemondb.net/artwork/lapras.jpg
+Ditto,,Final Form,https://img.pokemondb.net/artwork/ditto.jpg
+Eevee,use Water Stone / Thunder Stone / Fire Stone,134 / 135 / 136,https://img.pokemondb.net/artwork/eevee.jpg
+Vaporeon,,Final Form,https://img.pokemondb.net/artwork/vaporeon.jpg
+Jolteon,,Final Form,https://img.pokemondb.net/artwork/jolteon.jpg
+Flareon,,Final Form,https://img.pokemondb.net/artwork/flareon.jpg
+Porygon,,Final Form,https://img.pokemondb.net/artwork/porygon.jpg
+Omanyte,40,139,https://img.pokemondb.net/artwork/omanyte.jpg
+Omastar,,Final Form,https://img.pokemondb.net/artwork/omastar.jpg
+Kabuto,40,141,https://img.pokemondb.net/artwork/kabuto.jpg
+Kabutops,,Final Form,https://img.pokemondb.net/artwork/kabutops.jpg
+Aerodactyl,,Final Form,https://img.pokemondb.net/artwork/aerodactyl.jpg
+Snorlax,,Final Form,https://img.pokemondb.net/artwork/snorlax.jpg
+Articuno,,Final Form,https://img.pokemondb.net/artwork/articuno.jpg
+Zapdos,,Final Form,https://img.pokemondb.net/artwork/zapdos.jpg
+Moltres,,Final Form,https://img.pokemondb.net/artwork/moltres.jpg
+Dratini,30,148,https://img.pokemondb.net/artwork/dratini.jpg
+Dragonair,55,149,https://img.pokemondb.net/artwork/dragonair.jpg
+Dragonite,,Final Form,https://img.pokemondb.net/artwork/dragonite.jpg
+Mewtwo,,Final Form,https://img.pokemondb.net/artwork/mewtwo.jpg
+Mew,,Final Form,https://img.pokemondb.net/artwork/mew.jpg

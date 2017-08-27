@@ -1,0 +1,166 @@
+move,effect
+Absorb,Deals damage and user recovers half the HP inflicted on opponent.
+Acid,Deals damage and may lower opponent's Special Defense.
+Acid Armor,Sharply raises user's Defense.
+Agility,Sharply raises user's Speed.
+Amnesia,Sharply raises user's Special Defense.
+Aurora Beam,Deals damage and may lower opponent's Attack.
+Barrage,Deals damage and hits 2-5 times in one turn.
+Barrier,Sharply raises user's Defense.
+Bide,User takes damage for two turns then strikes back double.
+Bind,"Traps opponent, damaging them for 4-5 turns."
+Bite,Deals damage and may cause flinching.
+Blizzard,Deals damage and may freeze opponent.
+Body Slam,Deals damage and may paralyze opponent.
+Bone Club,Deals damage and may cause flinching.
+Bonemerang,Deals damage and hits twice in one turn.
+Bubble,Deals damage and may lower opponent's Speed.
+Bubble Beam,Deals damage and may lower opponent's Speed.
+Clamp,"Traps opponent, damaging them for 4-5 turns."
+Comet Punch,Deals damage and hits 2-5 times in one turn.
+Confuse Ray,Confuses opponent.
+Confusion,Deals damage and may confuse opponent.
+Constrict,Deals damage and may lower opponent's Speed by one stage.
+Conversion,Changes user's type to that of its first move.
+Counter,"When hit by a Physical Attack, user strikes back with 2x power."
+Crabhammer,Deals damage and high critical hit ratio.
+Cut,Deals damage
+Defense Curl,Raises user's Defense.
+Dig,"Digs underground on first turn, attacks on second. Can also escape from caves."
+Disable,Opponent can't use its last attack for a few turns.
+Dizzy Punch,Deals damage and may confuse opponent.
+Double Kick,Deals damage and hits twice in one turn.
+Double Slap,Deals damage and hits 2-5 times in one turn.
+Double Team,Raises user's Evasiveness.
+Double-Edge,Deals damage and user receives recoil damage.
+Dragon Rage,Always inflicts 40 HP.
+Dream Eater,Deals damage and user recovers half the HP inflicted on a sleeping opponent.
+Drill Peck,Deals damage
+Earthquake,Deals damage and power is doubled if opponent is underground from using Dig.
+Egg Bomb,Deals damage
+Ember,Deals damage and may burn opponent.
+Explosion,Deals damage and user faints.
+Fire Blast,Deals damage and may burn opponent.
+Fire Punch,Deals damage and may burn opponent.
+Fire Spin,"Traps opponent, damaging them for 4-5 turns."
+Fissure,"One-Hit-KO, if it hits."
+Flamethrower,Deals damage and may burn opponent.
+Flash,Lowers opponent's Accuracy.
+Fly,"Flies up on first turn, attacks on second turn."
+Focus Energy,Increases critical hit ratio.
+Fury Attack,Deals damage and hits 2-5 times in one turn.
+Fury Swipes,Deals damage and hits 2-5 times in one turn.
+Glare,Paralyzes opponent.
+Growl,Lowers opponent's Attack.
+Growth,Raises user's Attack and Special Attack.
+Guillotine,"One-Hit-KO, if it hits."
+Gust,Deals damage and hits Pokemon using Fly/Bounce with double power.
+Harden,Raises user's Defense.
+Haze,Resets all stat changes.
+Headbutt,Deals damage and may cause flinching.
+High Jump Kick,"Deals damage and if it misses, the user loses half their HP."
+Horn Attack,Deals damage
+Horn Drill,"One-Hit-KO, if it hits."
+Hydro Pump,Deals damage
+Hyper Beam,Deals damage and user must recharge next turn.
+Hyper Fang,Deals damage and may cause flinching.
+Hypnosis,Puts opponent to sleep.
+Ice Beam,Deals damage and may freeze opponent.
+Ice Punch,Deals damage and may freeze opponent.
+Jump Kick,"Deals damage and if it misses, the user loses half their HP."
+Karate Chop,Deals damage and high critical hit ratio.
+Kinesis,Lowers opponent's Accuracy.
+Leech Life,Deals damage and user recovers half the HP inflicted on opponent.
+Leech Seed,User steals HP from opponent each turn.
+Leer,Lowers opponent's Defense.
+Lick,Deals damage and may paralyze opponent.
+Light Screen,Halves damage from Special attacks for 5 turns.
+Lovely Kiss,Puts opponent to sleep.
+Low Kick,"The heavier the opponent, the stronger the attack."
+Meditate,Raises user's Attack.
+Mega Drain,Deals damage and user recovers half the HP inflicted on opponent.
+Mega Kick,Deals damage
+Mega Punch,Deals damage
+Metronome,User performs any move in the game at random.
+Mimic,Copies the opponent's last move.
+Minimize,Sharply raises user's Evasiveness.
+Mirror Move,User performs the opponent's last move.
+Mist,User's stats cannot be changed for a period of time.
+Night Shade,Inflicts damage equal to user's level.
+Pay Day,Deals damage and a small amount of money is gained after the battle resolves.
+Peck,Deals damage
+Petal Dance,Deals damage and user attacks for 2-3 turns but then becomes confused.
+Pin Missile,Deals damage and hits 2-5 times in one turn.
+Poison Gas,Poisons opponent.
+Poison Powder,Poisons opponent.
+Poison Sting,Deals damage and may poison the opponent.
+Pound,Deals damage
+Psybeam,Deals damage and may confuse opponent.
+Psychic,Deals damage and may lower opponent's Special Defense.
+Psywave,Inflicts damage 50-150% of user's level.
+Quick Attack,Deals damage and user attacks first.
+Rage,Deals damage and raises user's Attack when hit.
+Razor Leaf,Deals damage and high critical hit ratio.
+Razor Wind,"Charges on first turn, attacks on second. High critical hit ratio."
+Recover,User recovers half its max HP.
+Reflect,Halves damage from Physical attacks for 5 turns.
+Rest,"User sleeps for 2 turns, but user is fully healed."
+Roar,"In battles, the opponent switches. In the wild, the Pokemon runs."
+Rock Slide,Deals damage and may cause flinching.
+Rock Throw,Deals damage
+Rolling Kick,Deals damage and may cause flinching.
+Sand Attack,Lowers opponent's Accuracy.
+Scratch,Deals damage
+Screech,Sharply lowers opponent's Defense.
+Seismic Toss,Inflicts damage equal to user's level.
+Self-Destruct,Deals damage and user faints.
+Sharpen,Raises user's Attack.
+Sing,Puts opponent to sleep.
+Skull Bash,"Raises Defense on first turn, attacks on second."
+Sky Attack,"Charges on first turn, attacks on second. May cause flinching."
+Slam,Deals damage
+Slash,Deals damage and high critical hit ratio.
+Sleep Powder,Puts opponent to sleep.
+Sludge,Deals damage and may poison opponent.
+Smog,Deals damage and may poison opponent.
+Smokescreen,Lowers opponent's Accuracy.
+Soft-Boiled,User recovers half its max HP.
+Solar Beam,"Charges on first turn, attacks on second."
+Sonic Boom,Always inflicts 20 HP.
+Spike Cannon,Deals damage and hits 2-5 times in one turn.
+Splash,Doesn't do ANYTHING.
+Spore,Puts opponent to sleep.
+Stomp,Deals damage and may cause flinching.
+Strength,Deals damage
+String Shot,Sharply lowers opponent's Speed.
+Struggle,Deals damage and only usable when all PP are gone. Hurts the user.
+Stun Spore,Paralyzes opponent.
+Submission,Deals damage and user receives recoil damage.
+Substitute,Uses HP to creates a decoy that takes hits.
+Super Fang,Always takes off half of the opponent's HP.
+Supersonic,Confuses opponent.
+Surf,Deals damage and hits all adjacent Pokemon.
+Swift,Deals damage and ignores Accuracy and Evasiveness.
+Swords Dance,Sharply raises user's Attack.
+Tackle,Deals damage
+Tail Whip,Lowers opponent's Defense.
+Take Down,Deals damage and user receives recoil damage.
+Teleport,Allows user to flee wild battles; also warps player to last PokeCenter.
+Thrash,Deals damage and user attacks for 2-3 turns but then becomes confused.
+Thunder,Deals damage and may paralyze opponent.
+Thunder Punch,Deals damage and may paralyze opponent.
+Thunder Shock,Deals damage and may paralyze opponent.
+Thunder Wave,Paralyzes opponent.
+Thunderbolt,Deals damage and may paralyze opponent.
+Toxic,Badly poisons opponent.
+Transform,User takes on the form and attacks of the opponent.
+Tri Attack,"Deals damage and may paralyze, burn or freeze opponent."
+Twineedle,Deals damage and hits twice in one turn. May poison opponent.
+Vice Grip,Deals damage
+Vine Whip,Deals damage
+Water Gun,Deals damage
+Waterfall,Deals damage and may cause flinching.
+Whirlwind,"In battles, the opponent switches. In the wild, the Pokemon runs."
+Wing Attack,Deals damage
+Withdraw,Raises user's Defense.
+Wrap,"Traps opponent, damaging them for 4-5 turns."

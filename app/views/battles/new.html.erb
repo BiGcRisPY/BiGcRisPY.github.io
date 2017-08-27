@@ -1,0 +1,55 @@
+<!-- Validation failure messages -->
+<% if @battle.errors.any? %>
+  <% @battle.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Battle</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_battle" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for offense_id -->
+      <div class="form-group">
+        <label for="offense_id" class="control-label">
+          Offense
+        </label>
+
+        <input type="text" id="offense_id" name="offense_id" placeholder="Offense" class="form-control" value="<%= @battle.offense_id %>">
+      </div>
+
+      <!-- Label and input for defense_id -->
+      <div class="form-group">
+        <label for="defense_id" class="control-label">
+          Defense
+        </label>
+
+        <input type="text" id="defense_id" name="defense_id" placeholder="Defense" class="form-control" value="<%= @battle.defense_id %>">
+      </div>
+
+      <!-- Label and input for effectiveness -->
+      <div class="form-group">
+        <label for="effectiveness" class="control-label">
+          Effectiveness
+        </label>
+
+        <input type="text" id="effectiveness" name="effectiveness" placeholder="Effectiveness" class="form-control" value="<%= @battle.effectiveness %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Battle
+      </button>
+      or
+      <a href="/battles">Cancel</a>
+    </form>
+  </div>
+</div>

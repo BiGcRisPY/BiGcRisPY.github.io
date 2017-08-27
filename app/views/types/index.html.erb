@@ -1,0 +1,25 @@
+<div class="page-header">
+  <h1>
+    Types
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Title</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @types.each do |type| %>
+      <tr>
+        <td><%= type.title %></td>
+        <td>
+          <a href="/types/<%= type.id %>" class="btn btn-primary">Show</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
