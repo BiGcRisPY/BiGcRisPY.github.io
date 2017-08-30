@@ -8,6 +8,18 @@ class TypesController < ApplicationController
   def show
     @type = Type.find(params[:id])
 
+    @types = Type.all
+
+    @pokedexes = Pokedex.where({ :trainer_id => current_trainer.id })
+
+    @offense = @type.defense_battles.where( "effectiveness >=1")
+
+    @defense = @type.offense_battles.where("effectiveness <1")
+
+    @aoffense = @type.defense_battles.where("effectiveness <1")
+
+    @adefense = @type.offense_battles.where("effectiveness >1")
+
     render("types/show.html.erb")
   end
 

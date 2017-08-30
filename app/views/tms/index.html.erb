@@ -1,6 +1,6 @@
 <div class="page-header">
   <h1>
-    Tms
+    TM List
   </h1>
 </div>
 
@@ -14,8 +14,15 @@
       </tr>
 
       <% @tms.each do |tm| %>
+
+      <% if tm.id < 10 %>
+        <% z = "#0" %>
+      <% else %>
+        <% z = "#" %>
+      <% end %>
+
       <tr>
-        <td><%= tm.id %></td>
+        <td><%= z+ tm.id.to_s %></td>
         <td><%= tm.move.name %></td>
         <td><%= tm.move.effect %></td>
       </tr>

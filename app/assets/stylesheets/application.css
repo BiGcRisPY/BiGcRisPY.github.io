@@ -77,3 +77,9 @@
 .margin-below-bottom-xl {
   margin-bottom: 200px;
 }
+
+/* Types */
+.active {
+  color: #97310e;
+  text-decoration: underline;
+}

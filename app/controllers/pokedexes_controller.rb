@@ -43,6 +43,8 @@ class PokedexesController < ApplicationController
   def create
     @pokedex = Pokedex.new
 
+    @pokemon = Pokemon.all.order(:creature)
+
     @pokedex.pokemon_id = params[:pokemon_id]
     @pokedex.nickname = params[:nickname]
     @pokedex.current_level = params[:current_level]
@@ -86,9 +88,51 @@ class PokedexesController < ApplicationController
     @pokedex.destroy
 
     if URI(request.referer).path == "/pokedexes/#{@pokedex.id}"
-      redirect_to("/", :notice => "Pokedex deleted.")
+      redirect_to("/pokedexes", :notice => "Pokedex deleted.")
     else
       redirect_to(:back, :notice => "Pokedex deleted.")
     end
+  end
+
+  def levels
+    @pokedexes = Pokedex.all
+
+    @leveling = Hash.new
+    @outcomes = Hash.new
+
+    @pokedexes.each do |p|
+
+      @new_move_level = p.learnedmoves.find_by("level_learned > ?", p.current_level).level_learned
+
+      if p.pokemon.evo_level.to_i > 0
+
+        # Need to test...What if no moves left?
+        @levels_left = [[@new_move_level, p.pokemon.evo_level.to_i].compact.min - p.current_level, 1].max
+
+        if @new_move_level <= p.pokemon.evo_level.to_i
+
+          @outcome = p.learnedmoves.find_by("level_learned > ?", p.current_level).move.name
+
+        else
+
+          @outcome = Pokemon.find(p.pokemon.evo_outcome.to_i).creature
+
+        end
+
+      else
+
+        @levels_left = @new_move_level - p.current_level
+
+        @outcome = p.learnedmoves.find_by("level_learned > ?", p.current_level).move.name
+
+      end
+
+      @leveling[p.id] = @levels_left
+      @outcomes[p.id] = @outcome
+
+
+    end
+
+    render("pokedexes/levels.html.erb")
   end
 end

@@ -5,21 +5,39 @@
 <% end %>
 
 <div class="page-header row">
-  <div class="col-md-10">
+  <div class="col-md-9">
     <h3><%= current_trainer.username %>'s <%= @pokedex.pokemon.creature %></h3>
     <% if @pokedex.nickname != nil %>
       <h4><%= @pokedex.nickname %></h4>
     <% end %>
   </div>
 
-  <div class="col-md-2">
+  <div class="col-md-3">
 
     <!-- Evolve -->
     <% if @pokedex.pokemon.evo_outcome.to_i > 0 %>
 
       <!-- Then, if the Pokemon is Eevee -->
       <% if @pokedex.pokemon.creature == "Eevee" %>
-        hi
+
+        <form class="form-inline" action="/update_pokedex/<%= @pokedex.id %>" method="post">
+
+          <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+          <!-- dropdown to choose evolve up Pokemon -->
+          <select name="pokemon_id" class="form-control">
+            <option value="134">Vaporeon</option>
+            <option value="135">Jolteon</option>
+            <option value="136">Flareon</option>
+
+          <input type="hidden" name="nickname" value="<%= @pokedex.nickname %>">
+
+          <input type="hidden" name="current_level" value="<%= @pokedex.current_level %>">
+
+          <input type="hidden" name="trainer_id" value="<%= @pokedex.trainer_id %>">
+
+          <button class="btn btn-warning">Evolve</button>
+        </form>
 
       <!-- Otherwise, pull evo_outcome to evolve up -->
       <% else %>
@@ -105,6 +123,7 @@
       <dt>Current Level</dt>
       <dd><%= @pokedex.current_level %>
 
+        <!-- Level up -->
         <form action="/update_pokedex/<%= @pokedex.id %>" method="post">
 
           <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
@@ -120,6 +139,7 @@
           <button class="btn-link"><i class="fa fa-plus-square" aria-hidden="true"></i></button>
         </form>
 
+        <!-- Level down -->
         <form action="/update_pokedex/<%= @pokedex.id %>" method="post">
 
           <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
@@ -148,8 +168,10 @@
     <h4>Evolution</h4>
     <table>
 
+      <!-- If Pokemon can evolve (not Final Form) -->
       <% if @pokedex.pokemon.evo_outcome.to_i > 0 %>
 
+        <!-- If Eevee -->
         <% if @pokedex.pokemon.creature == "Eevee" %>
         <tr>
           <!-- Show stones plus arrow -->
@@ -162,42 +184,45 @@
           <!-- Show pictures of all 3 evolutions -->
           <% @evopoke.each do |p| %>
           <td class="col-md-2">
-            <img src="<%= p.image %>" style="width:100px;">
+            <a href="/pokemons/<%= p.id %>"><img src="<%= p.image %>" style="width:100px;"></a>
           </td>
           <% end %>
         </tr>
         <tr>
           <td class="col-md-4"></td>
           <% @evopoke.each do |p| %>
-            <td class="col-md-2"><%= p.creature %></td>
+            <td class="col-md-2"><a href="/pokemons/<%= p.id %>"><%= p.creature %></a></td>
           <% end %>
         </tr>
 
+        <!-- If not Eevee and evolves via Leveling -->
         <% elsif @pokedex.pokemon.evo_level.to_i > 0 %>
         <tr>
           <!-- Show level # plus arrow -->
           <td class="col-md-2"><h5><%= "Level " + @pokedex.pokemon.evo_level %> <i class="fa fa-arrow-right" aria-hidden="true"></i></h5></td>
           <!-- Show image of pokemon -->
-          <td class="col-md-6"><img src="<%= @evopoke.image %>" style="width:100px;"></td>
+          <td class="col-md-6"><a href="/pokemons/<%= @evopoke.id %>"><img src="<%= @evopoke.image %>" style="width:100px;"></a></td>
         </tr>
         <tr>
           <td class="col-md-2"></td>
-          <td class="col-md-4"><%= @evopoke.creature %></td>
+          <td class="col-md-4"><a href="/pokemons/<%= @evopoke.id %>"><%= @evopoke.creature %></a></td>
         </tr>
 
+        <!-- Otherwise, if evolves via Stone or Trade -->
         <% else %>
         <tr>
           <!-- Show stone/trade plus arrow -->
           <td class="col-md-3"><h5><%= @pokedex.pokemon.evo_level %> <i class="fa fa-arrow-right" aria-hidden="true"></i></h5></td>
           <!-- Show image of pokemon -->
-          <td class="col-md-6"><img src="<%= @evopoke.image %>" style="width:100px;"></td>
+          <td class="col-md-6"><a href="/pokemons/<%= @evopoke.id %>"><img src="<%= @evopoke.image %>" style="width:100px;"></a></td>
         </tr>
         <tr>
           <td class="col-md-3"></td>
-          <td class="col-md-6"><%= @evopoke.creature %></td>
+          <td class="col-md-6"><a href="/pokemons/<%= @evopoke.id %>"><%= @evopoke.creature %></a></td>
         </tr>
         <% end %>
 
+      <!-- Otherwise, if Final Form -->
       <% else %>
       <tr>
         <td><h5>Final Form</h5></td>
@@ -278,11 +303,8 @@
   <div class="col-md-12 mb-2">
 
     <div class="btn-group btn-group-justified">
-      <a href="/pokedexes" class="btn btn-primary">
+      <a href="/pokedexes" class="btn btn-warning">
         Back
-      </a>
-      <a href="/pokedexes/<%= @pokedex.id %>/edit" class="btn btn-warning">
-        Edit
       </a>
       <a href="/delete_pokedex/<%= @pokedex.id %>" class="btn btn-danger" rel="nofollow">
         Delete

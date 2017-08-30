@@ -1,24 +1,145 @@
 <div class="page-header">
-  <h3>Type #<%= @type.id %></h3>
+    <table>
+      <tr>
+        <% @types.each do |t| %>
+          <% if t.title == @type.title %>
+            <td class="col-md-1"><a class="active" href="<%= t.id %>"><%= t.title %></a></td>
+          <% else %>
+            <td class="col-md-1"><a href="<%= t.id %>"><%= t.title %></a></td>
+          <% end %>
+        <% end %>
+      </tr>
+    </table>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <h3><%= @type.title %></h3>
+    <hr>
+  </div>
 </div>
 
 <div class="row">
   <div class="col-md-12 mb-2">
-    <dl class="dl-horizontal">
-      <dt>Title</dt>
-      <dd><%= @type.title %></dd>
 
-    </dl>
+    <table class="col-md-4">
+      <tr>
+        <th colspan=3>
+          Pokemon Good Against <%= @type.title %> Types
+        </th>
+      </tr>
+      <% @offense.sort_by{ |e| e.effectiveness }.reverse.each do |battle| %>
+        <% battle.offense.pokemons.select{ |p| @pokedexes.pluck(:pokemon_id).include? p.id}.each do |p| %>
+          <tr>
+            <td class="col-md-1" ><a href="/pokedexes/<%= @pokedexes.find_by({ :pokemon_id => p.id }).id %>"><%= p.creature %></a></td>
+            <td class="col-md-1"><%= battle.offense.title %></td>
+            <td class="col-md-1"><%= battle.effectiveness %></td>
+          </tr>
+        <% end %>
+      <% end %>
+    </table>
 
+    <table class="col-md-4">
+      <tr>
+        <th colspan=3>
+          Best Pokemon Against <%= @type.title %> Types
+        </th>
+      </tr>
+
+        <% @offense.each do |battle| %>
+          <% if @defense.exists?(:defense_id => "#{battle.offense_id}") == true %>
+            <% battle.offense.pokemons.select{ |p| @pokedexes.pluck(:pokemon_id).include? p.id}.each do |p| %>
+              <tr>
+                <td class="col-md-1" ><a href="/pokedexes/<%= @pokedexes.find_by({ :pokemon_id => p.id }).id %>"><%= p.creature %></a></td>
+                <td class="col-md-1"><%= battle.offense.title %></td>
+              </tr>
+            <% end %>
+          <% end %>
+        <% end %>
+    </table>
+
+    <table class="col-md-4">
+      <tr>
+        <th colspan=3>
+          Pokemon Good Defending Against <%= @type.title %> Types
+        </th>
+      </tr>
+      <% @defense.sort_by{ |e| e.effectiveness }.each do |battle| %>
+        <% battle.defense.pokemons.select{ |p| @pokedexes.pluck(:pokemon_id).include? p.id}.each do |p| %>
+          <tr>
+            <td class="col-md-1"><a href="/pokedexes/<%= @pokedexes.find_by({ :pokemon_id => p.id }).id %>"><%= p.creature %></a></td>
+            <td class="col-md-1"><%= battle.defense.title %></td>
+            <td class="col-md-1"><%= battle.effectiveness %></td>
+          </tr>
+        <% end %>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<div class="row padding-inside-top-md">
+  <div class="col-md-12 mb-2">
+
+    <table class="col-md-4">
+      <tr>
+        <th colspan=3>
+          Pokemon Bad Against <%= @type.title %> Types
+        </th>
+      </tr>
+      <% @aoffense.sort_by{ |e| e.effectiveness }.reverse.each do |battle| %>
+        <% battle.offense.pokemons.select{ |p| @pokedexes.pluck(:pokemon_id).include? p.id}.each do |p| %>
+          <tr>
+            <td class="col-md-1" ><a href="/pokedexes/<%= @pokedexes.find_by({ :pokemon_id => p.id }).id %>"><%= p.creature %></a></td>
+            <td class="col-md-1"><%= battle.offense.title %></td>
+            <td class="col-md-1"><%= battle.effectiveness %></td>
+          </tr>
+        <% end %>
+      <% end %>
+    </table>
+
+    <table class="col-md-4">
+      <tr>
+        <th colspan=3>
+          Worst Pokemon Against <%= @type.title %> Types
+        </th>
+      </tr>
+
+        <% @aoffense.each do |battle| %>
+          <% if @adefense.exists?(:defense_id => "#{battle.offense_id}") == true %>
+            <% battle.offense.pokemons.select{ |p| @pokedexes.pluck(:pokemon_id).include? p.id}.each do |p| %>
+              <tr>
+                <td class="col-md-1" ><a href="/pokedexes/<%= @pokedexes.find_by({ :pokemon_id => p.id }).id %>"><%= p.creature %></a></td>
+                <td class="col-md-1"><%= battle.offense.title %></td>
+              </tr>
+            <% end %>
+          <% end %>
+        <% end %>
+    </table>
+
+    <table class="col-md-4">
+      <tr>
+        <th colspan=3>
+          Pokemon Bad Defending Against <%= @type.title %> Types
+        </th>
+      </tr>
+      <% @adefense.sort_by{ |e| e.effectiveness }.each do |battle| %>
+        <% battle.defense.pokemons.select{ |p| @pokedexes.pluck(:pokemon_id).include? p.id}.each do |p| %>
+          <tr>
+            <td class="col-md-1"><a href="/pokedexes/<%= @pokedexes.find_by({ :pokemon_id => p.id }).id %>"><%= p.creature %></a></td>
+            <td class="col-md-1"><%= battle.defense.title %></td>
+            <td class="col-md-1"><%= battle.effectiveness %></td>
+          </tr>
+        <% end %>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<div class="row padding-inside-top-sm">
+  <div class="col-md-12 mb-2">
     <div class="btn-group btn-group-justified">
       <a href="/types" class="btn btn-primary">
         Back
-      </a>
-      <a href="/types/<%= @type.id %>/edit" class="btn btn-warning">
-        Edit
-      </a>
-      <a href="/delete_type/<%= @type.id %>" class="btn btn-danger" rel="nofollow">
-        Delete
       </a>
     </div>
   </div>

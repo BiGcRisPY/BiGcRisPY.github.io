@@ -19,8 +19,10 @@
     <h4>Evolution</h4>
     <table>
 
+        <!-- If Pokemon can evolve (not Final Form) -->
         <% if @pokemon.evo_outcome.to_i > 0 %>
 
+          <!-- If Pokemon is Eevee -->
           <% if @pokemon.creature == "Eevee" %>
           <tr>
             <!-- Show stones plus arrow -->
@@ -32,41 +34,44 @@
             </h5></td>
             <!-- Show pictures of all 3 evolutions -->
             <% @evopoke.each do |p| %>
-              <td class="col-md-2"><img src="<%= p.image %>" alt="" style="width:100px;"></td>
+              <td class="col-md-2"><a href="<%= p.id %>"><img src="<%= p.image %>" alt="" style="width:100px;"></a></td>
             <% end %>
           </tr>
           <tr>
             <td class="col-md-4"></td>
             <% @evopoke.each do |p| %>
-              <td class="col-md-2"><%= p.creature %></td>
+              <td class="col-md-2"><a href="<%= p.id %>"><%= p.creature %></a></td>
             <% end %>
           </tr>
 
+          <!-- If not Eevee and evolves by Leveling -->
           <% elsif @pokemon.evo_level.to_i > 0 %>
           <tr>
             <!-- Show Level # plus arrow -->
             <td class="col-md-2"><h5><%= "Level " + @pokemon.evo_level %> <i class="fa fa-arrow-right" aria-hidden="true"></i></h5></td>
             <!-- Show image of pokemon -->
-            <td class="col-md-6"><img src="<%= @evopoke.image %>" alt="" style="width:100px;"></td>
+            <td class="col-md-6"><a href="<%= @evopoke.id %>>"><img src="<%= @evopoke.image %>" alt="" style="width:100px;"></a></td>
           </tr>
           <tr>
             <td class="col-md-2"></td>
-            <td class="col-md-6"><%= @evopoke.creature %></td>
+            <td class="col-md-6"><a href="<%= @evopoke.id %>"><%= @evopoke.creature %></a></td>
           </tr>
 
+          <!-- If evolves via Stone or Trade -->
           <% else %>
           <tr>
             <!-- Show stone/trade plus arrow -->
             <td class="col-md-3"><h5><%= @pokemon.evo_level %> <i class="fa fa-arrow-right" aria-hidden="true"></i></h5></td>
             <!-- Show image of pokemon -->
-            <td class="col-md-6"><img src="<%= @evopoke.image %>" alt="" style="width:100px;"></td>
+            <td class="col-md-6"><a href="<%= @evopoke.id %>"><img src="<%= @evopoke.image %>" alt="" style="width:100px;"></a></td>
           </tr>
           <tr>
             <td class="col-md-3"></td>
-            <td class="col-md-6"><%= @evopoke.creature %></td>
+            <td class="col-md-6"><a href="<%= @evopoke.id %>"><%= @evopoke.creature %></a></td>
           </tr>
           <% end %>
 
+        <!-- Otherwise, if Final Form -->
         <% else %>
         <tr>
           <td><h5>Final Form</h5></td>

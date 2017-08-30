@@ -1,8 +1,46 @@
+<!-- Validation failure messages -->
+<% if @mytm.errors.any? %>
+  <% @mytm.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
 <div class="page-header">
   <h1>
     My TMs
-    <a href="/mytms/new" class="btn btn-lg btn-success">Add TM</a>
   </h1>
+</div>
+
+<div class="row padding-inside-bottom-sm">
+  <form class="form-inline" action="/create_mytm" method="post">
+
+    <!-- Hidden input for authenticity token to protect from forgery -->
+    <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+    <!-- Label and input for tm_id -->
+    <div class="form-group">
+      <label for="tm_id" class="control-label">
+        Add a TM
+      </label>
+
+      <input type="text" id="tm_id" name="tm_id" placeholder="1 - 50" class="form-control" value="<%= @mytm.tm_id %>">
+    </div>
+
+    <!-- Label and input for trainer_id -->
+    <div class="form-group">
+
+      <input type="hidden" id="trainer_id" name="trainer_id" class="form-control" value="<%= current_trainer.id %>">
+    </div>
+
+
+    <button class="btn btn-success">
+      Add
+    </button>
+
+  </form>
 </div>
 
 <div class="row">
@@ -28,7 +66,7 @@
         <td><%= mytm.tm.move.name %></td>
         <td><%= mytm.tm.move.effect %></td>
         <td>
-          <a href="/delete_mytm/<%= mytm.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          <a href="/delete_mytm/<%= mytm.id %>" class="btn btn-danger" rel="nofollow"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
         </td>
       </tr>
       <% end %>

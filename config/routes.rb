@@ -22,6 +22,9 @@ Rails.application.routes.draw do
   get "/pokedexes/new", :controller => "pokedexes", :action => "new"
   post "/create_pokedex", :controller => "pokedexes", :action => "create"
 
+  #LEVEL
+  get "/pokedexes/levels", :controller => "pokedexes", :action => "levels"
+
   # READ
   get "/pokedexes", :controller => "pokedexes", :action => "index"
   get "/pokedexes/:id", :controller => "pokedexes", :action => "show"

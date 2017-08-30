@@ -5,7 +5,7 @@
 <% end %>
 
 <div class="page-header">
-  <h3>TM <%= z + @mytm.tm.id.to_s %> <%= @mytm.tm.move.name %></h3>
+  <h3>TM <%= z + @mytm.tm.id.to_s %> <%= @mytm.tm.move.name %> <a href="/delete_mytm/<%= @mytm.id %>" class="btn btn-danger" rel="nofollow"><i class="fa fa-trash-o" aria-hidden="true"></i></a></h3>
 </div>
 
 <div class="row">
@@ -26,6 +26,7 @@
 
       <% else %>
         <% myTmPoke.each do |t| %>
+
         <tr>
           <td><%= t.pokemon.creature %></td>
         </tr>
@@ -41,9 +42,6 @@
     <div class="btn-group btn-group-justified">
       <a href="/mytms" class="btn btn-warning">
         Back
-      </a>
-      <a href="/delete_mytm/<%= @mytm.id %>" class="btn btn-danger" rel="nofollow">
-        Delete
       </a>
     </div>
   </div>

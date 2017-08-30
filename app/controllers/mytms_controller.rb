@@ -2,6 +2,8 @@ class MytmsController < ApplicationController
   def index
     @mytms = Mytm.where({ :trainer_id => current_trainer.id }).sort_by{ |t| t.tm.id }
 
+    @mytm = Mytm.new
+
     render("mytms/index.html.erb")
   end
 
@@ -24,6 +26,8 @@ class MytmsController < ApplicationController
   def create
     @mytm = Mytm.new
 
+    @mytms = Mytm.where({ :trainer_id => current_trainer.id }).sort_by{ |t| t.tm.id }
+
     @mytm.tm_id = params[:tm_id]
     @mytm.trainer_id = params[:trainer_id]
 
@@ -32,7 +36,7 @@ class MytmsController < ApplicationController
     if save_status == true
       redirect_to("/mytms/#{@mytm.id}", :notice => "Mytm created successfully.")
     else
-      render("mytms/new.html.erb")
+      render("mytms/index.html.erb")
     end
   end
 
@@ -63,7 +67,7 @@ class MytmsController < ApplicationController
     @mytm.destroy
 
     if URI(request.referer).path == "/mytms/#{@mytm.id}"
-      redirect_to("/", :notice => "Mytm deleted.")
+      redirect_to("/mytms", :notice => "Mytm deleted.")
     else
       redirect_to(:back, :notice => "Mytm deleted.")
     end
