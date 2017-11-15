@@ -55,7 +55,11 @@ $(document).on('turbolinks:render', function() {
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a href="/pokedexes" class="navbar-brand"><%= current_trainer.username %>'s Pokedex</a>
+        <% if current_trainer != nil %>
+          <a href="/pokedexes" class="navbar-brand"><%= current_trainer.username %>'s Pokedex</a>
+        <% else %>
+          <a href="/pokedexes" class="navbar-brand">Pokemon Yellow</a>
+        <% end %>
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
